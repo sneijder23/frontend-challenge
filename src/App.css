@@ -1,38 +1,102 @@
-.App {
-  text-align: center;
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header {
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header__list {
+  min-height: 64px;
+  margin: 0;
+  padding: 0 62px;
   display: flex;
-  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-shrink: 0;
+  background-color: #2196f3;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.24);
+  list-style: none;
 }
 
-.App-link {
-  color: #61dafb;
+.header__item {
+  padding: 23px 26px;
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: 0.25px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.header__item--active {
+  background: var(--Primary-600, #1E88E5);
+  
+}
+
+.header__item--active .header__item-link {
+  color: var(--White-High-Emphasis, #FFF);
+}
+
+.header__item-link {
+  padding: 0;
+  color: var(--White-Medium-Emphasis, rgba(255, 255, 255, 0.70));
+  text-align: center;
+  text-decoration: none;
+}
+
+.page__main {
+  margin: 0;
+  padding: 48px 62px;
+}
+
+.page__favorite {
+  margin: 0;
+  padding: 48px 62px;
+}
+
+.cats-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 47px;
+  flex-shrink: 0;
+}
+
+.cats-item {
+  margin: 0;
+  padding: 0;
+}
+
+.card {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.card__image {
+  display: block;
+  object-fit: cover;
+}
+
+.card__favorite {
+  position: absolute;
+  right: 0;
+  bottom: 4px;
+}
+
+.card:hover {
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.24);
+  transform: scale(1.1378);
 }
