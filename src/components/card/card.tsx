@@ -2,11 +2,15 @@ import { useState } from "react";
 import { Cat } from "../../types/cats";
 import { useDispatch } from "react-redux";
 import { catsAction } from "../../store/slice/cats/cats";
+import { getFavoriteCats } from "../../store/slice/cats/selectors";
+import { useAppSelector } from "../../hooks/store";
 
 export default function Card({ cat }: { cat: Cat }): JSX.Element {
   const dispatch = useDispatch();
+  const catsFavoriteState = useAppSelector(getFavoriteCats);
+  const isFavoriteCat = catsFavoriteState.some((favoriteCat) => favoriteCat.id === cat.id);
   const [isHovered, setIsHovered] = useState(false);
-  const [isFavorite, setIsFavorite] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(isFavoriteCat);
   const altText = `Котик ${cat.id}`;
 
   const handleMouseEnter = () => {
