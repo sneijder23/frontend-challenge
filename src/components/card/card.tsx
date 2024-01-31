@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { Cat } from "../../types/cats";
+import { useDispatch } from "react-redux";
+import { catsAction } from "../../store/slice/cats/cats";
 
 export default function Card({ cat }: { cat: Cat }): JSX.Element {
+  const dispatch = useDispatch();
   const [isHovered, setIsHovered] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
   const altText = `Котик ${cat.id}`;
@@ -14,8 +17,10 @@ export default function Card({ cat }: { cat: Cat }): JSX.Element {
     setIsHovered(false);
   };
 
-  const handleFavoriteClick = () => {
+  const handleFavoriteClick = (event: React.MouseEvent<HTMLElement>) => {
+    event.stopPropagation();
     setIsFavorite(!isFavorite);
+    dispatch(catsAction.setFavoriteCat(cat.id));
   };
 
   return (

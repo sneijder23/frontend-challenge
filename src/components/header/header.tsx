@@ -1,5 +1,5 @@
-import { Link, useLocation } from 'react-router-dom';
-import { AppRoute } from '../../const';
+import { Link, useLocation } from "react-router-dom";
+import { AppRoute } from "../../const";
 
 interface HeaderItem {
   text: string;
